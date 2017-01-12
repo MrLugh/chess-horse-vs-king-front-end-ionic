@@ -1,0 +1,40 @@
+<div class="matrix">
+	<div ng-repeat="position in chessSv.getMatrix()" class="position {{position.odd ? 'odd':''}} {{getCurrentPositionClass(position)}}"  style="width:{{100/chessSv.getConfig().size}}%;" ng-click="positionClick(position)">
+		<span class="stats">{{position.index}} - {{position.row}},{{position.cell}}</span>
+	</div>
+</div>
+
+<div ng-if="!chessSv.isPlaying()" class="center">
+	<p ng-if="!horseSv.getInitial()">
+		<img src="img/horse.png">
+		Haga click en la posición inicial del caballo.
+	</p>
+	<p ng-if="horseSv.getInitial() && !kingSv.getInitial()">
+		<img src="img/king.png">
+		Haga click en la posición inicial de la reina.
+	</p>
+	<button ng-if="horseSv.getInitial() && kingSv.getInitial()" ng-click="chessSv.play()" class="button button-positive">
+		Jugar
+	</button>
+</div>
+
+<div ng-if="chessSv.getWinner().length" class="center">
+	<h1 class="title">Winner: {{chessSv.getWinner()}}</h1>
+	<button ng-click="chessSv.init()" class="button button-positive">
+		Jugar
+	</button>
+</div>
+
+<div ng-if="chessSv.getTrace().length">
+	<h3 class="title">Partida</h3>
+	<ul class="list">
+	    <li class="item" ng-repeat="trace in chessSv.getTrace()">
+	    	<div ng-if="trace.length == 2">
+	    		{{trace[0]}} a {{trace[1]}}
+	    	</div>
+	    	<div ng-if="trace.length == 3">
+	    		{{trace[0]}} de {{trace[1]}} a {{trace[2]}}
+	    	</div>
+	    </li>
+	</ul>
+</div>

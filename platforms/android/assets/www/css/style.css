@@ -1,0 +1,59 @@
+/* Empty. Add your own CSS if you like */
+* {
+	box-sizing: border-box;
+}
+
+.center {
+	margin: 0 auto;
+	text-align: center;
+}
+
+.odd {
+	background-color:#f3f3f3;
+}
+
+.matrix {
+	max-width: 600px;
+	margin:0 auto;
+	padding: 20px;
+	overflow: hidden;
+}
+
+.position {
+	border: 1px solid grey;
+	height: 40px;
+	float: left;
+	clear: none;
+	display: inline-block;
+	margin:0 auto;
+	position: relative;
+	overflow: hidden;
+}
+
+.position.current-horse {
+	background-image: url('../img/horse.png');
+	background-size:40%;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.position.current-king {
+	background-image: url('../img/king.png');
+	background-size:40%;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.position.small-king {
+	background-image: url('../img/king.png');
+	background-size:20%;
+	background-repeat: no-repeat;
+	background-position: bottom right;
+}
+
+.stats {
+	position: absolute;
+	top:0;
+	left: 5px;
+	font-size: 0.5rem;
+}
